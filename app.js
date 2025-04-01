@@ -1,7 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 // To modify to a type of router, like usersRouter
-const router = require("./routes/router");
+const itemsRouter = require("./routes/itemsRouter");
 
 // Only if using EJS as view engine
 app.set("view engine", "ejs");
@@ -9,7 +10,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 // app.get("/", (req, res) => res.send("Hello, world!"));
-app.use("/", router);
+app.use("/", itemsRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

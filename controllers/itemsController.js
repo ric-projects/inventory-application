@@ -1,6 +1,6 @@
 // const storage = require("../storages/storage");
 
-exports.basicGet = (req, res) => {
+exports.getAllItems = (req, res) => {
   //   res.send(`Hello world`);
   res.render("index", { data: "" });
 };
