@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Brands</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        <%- include('navbar') %>
+
+        <h3>Brands</h3>
+        <div class="itemsWrapper">
+            <% items.forEach(item => { %>
+            <div class="itemCard">
+              <%= item.brand_name %>
+              <% const address = "/brand/" + item.brand_id %>
+              <a href=<% address %> ><button>Details</button></a>
+              <button>Delete</button>
+            </div>
+            <% }); %>
+        </div>
+    </body>
+</html>

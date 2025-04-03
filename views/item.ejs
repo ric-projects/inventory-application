@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Item title (replace)</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include('navbar.ejs') %>
+    <div class="itemCardLarge">
+      <%= item.part %> <br />
+      <%= item.price %> <br />
+      <%= item.cat_name %> <br />
+      <%= item.brand_name %> <br />
+      <a href=""><button>Update</button></a>
+      <a href=""><button>Delete</button></a>
+    </div>
+  </body>
+</html>

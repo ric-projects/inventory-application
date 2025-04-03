@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Item category (replace)</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include('navbar.ejs') %> 
+    <h3>Categories</h3>
+    <div class="itemsWrapper">
+      <% items.forEach(item => { %>
+        <div class="itemCard">
+          <%= item.cat_name %>
+          <% const address = "/cat/" + item.cat_id %>
+          <a href=<%= address %> ><button>Details</button></a>
+          <button>Delete</button>
+        </div>
+    </div>
+    <% }); %>
+  </body>
+</html>

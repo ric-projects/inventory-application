@@ -1,9 +1,20 @@
 <html>
   <head>
     <title>My Project</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <h1>Project</h1>
-    My project
+    <%- include("navbar.ejs") %>
+    <h3>My project</h3>
+    <div class="itemsWrapper">
+      <% items.forEach(item => { %>
+      <div class="itemCard">
+        <%= item.part %>
+        <% const address = "/item/" + item.id %>
+        <a href=<%= address %> ><button>Details</button></a>
+        <button>Delete</button>
+      </div>
+      <% }); %>
+    </div>
   </body>
 </html>
