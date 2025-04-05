@@ -12,10 +12,11 @@
             <div class="itemCard">
               <%= item.brand_name %>
               <% const address = "/brand/" + item.brand_id %>
-              <a href=<% address %> ><button>Details</button></a>
+              <a href=<%= address %> ><button>Details</button></a>
               <button>Delete</button>
             </div>
             <% }); %>
         </div>
+        <a href="/newbrand">Add New Brand</a>
     </body>
 </html>

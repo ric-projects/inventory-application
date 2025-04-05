@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>New Item</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include('navbar') %>
+
+    <form action="/newitem" method="POST">
+        <div class="itemsWrapper">
+          <label for="part">
+            Part: <input type="text" name="part" id="part" />
+          </label>
+          <label for="price">
+            Price: <input type="number" name="price" id="price" />
+          </label>
+          <label for="category">
+            <select name="category" id="category">
+              <% categories.forEach((cat) => { %>
+              <option value=<%= cat.cat_name %>> <%= cat.cat_name %></option>
+              <% }); %>
+            </select></label>
+          <label for="brand">
+            <select name="brand" id="brand">
+              <% brands.forEach((brand) => { %>
+              <option value=<%= brand.brand_name %>
+                > <%=brand.brand_name%>
+              </option>
+              <% }); %>
+            </select>
+          </label>
+          <button type="submit">Submit</button>
+        </div>
+    </form>
+  </body>
+</html>

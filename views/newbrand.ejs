@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Add New Brand</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include('navbar') %>
+    <h3>Brand</h3>
+    <form action="/newbrand" method="POST">
+      <label for="brand"
+        >Category:
+        <input type="text" name="brand" id="brand" />
+        <button type="submit">Submit</button>
+      </label>
+    </form>
+  </body>
+</html>
