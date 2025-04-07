@@ -7,4 +7,5 @@ module.exports = new Pool({
 
   //   ssl: true,
   connectionString: process.env.PG_CONN_STRING,
+  ssl: true,
 });
