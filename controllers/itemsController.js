@@ -142,5 +142,6 @@ exports.getCatToUpdate = async (req, res) => {
 exports.updateCatName = async (req, res) => {
   const catid = Number(req.params.catid);
   const catName = req.body.category;
+  await db.updateCatName(catid, catName);
   res.redirect("/cat");
 };

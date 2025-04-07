@@ -165,6 +165,12 @@ async function getCatToUpdate(cat_id) {
     cat_id,
   ]);
 }
+async function updateCatName(cat_id, cat_name) {
+  return await pool.query(
+    `UPDATE category SET cat_name=($2) WHERE cat_id=($1);`,
+    [cat_id, cat_name]
+  );
+}
 
 module.exports = {
   getAllItems,
@@ -187,4 +193,5 @@ module.exports = {
   getBrandById,
   updateBrandName,
   getCatToUpdate,
+  updateCatName,
 };
