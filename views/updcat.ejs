@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Update Category</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include('navbar') %> <% const action="/updcat/" + cat_id %>
+    <form action="<%=action%>" method="post">
+      <div class="itemsWrapper">
+        <label for="category">
+          Category:
+          <input
+            type="text"
+            name="category"
+            id="category"
+            value="<%=cat_name%>"
+          />
+        </label>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>

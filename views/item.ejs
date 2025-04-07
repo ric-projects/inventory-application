@@ -10,8 +10,10 @@
       <%= item.price %> <br />
       <%= item.cat_name %> <br />
       <%= item.brand_name %> <br />
-      <a href=""><button>Update</button></a>
-      <a href=""><button>Delete</button></a>
+      <% const delAdd = '/delitem/' + item.id %>
+      <% const update = "/upditem/" + item.id %>
+      <a href=<%= update %> ><button>Update</button></a>
+      <a href=<%= delAdd %> ><button>Delete</button></a>
     </div>
   </body>
 </html>

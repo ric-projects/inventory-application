@@ -12,8 +12,11 @@
             <div class="itemCard">
               <%= item.brand_name %>
               <% const address = "/brand/" + item.brand_id %>
+              <% const delBrand = "/delbrand/" + item.brand_id %>
+              <% const updBrand = "/updbrand/" + item.brand_id %>
               <a href=<%= address %> ><button>Details</button></a>
-              <button>Delete</button>
+              <a href=<%= updBrand %> > <button>Update</button></a>
+              <a href=<%= delBrand %> ><button>Delete</button></a>
             </div>
             <% }); %>
         </div>
