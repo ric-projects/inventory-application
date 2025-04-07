@@ -4,10 +4,20 @@ const { Client } = require("pg");
 console.log(`User is: ` + process.env.USER);
 
 const SQL = `
+CREATE TABLE IF NOT EXISTS brands (
+  brand_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  brand_name VARCHAR (255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS category (
+  cat_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  cat_name VARCHAR (50) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS inventory (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   part VARCHAR (255),
-  category_id SMALLINT CHECK (category > 0),
+  category_id SMALLINT CHECK (category_id > 0),
   price SMALLINT CHECK (price > 0),
   brand_id SMALLINT CHECK (brand_id > 0)
 );
@@ -23,11 +33,6 @@ VALUES
   ('logo hoodie', '2', '35', '4'),
   ('socks', '2', '15', '2');
 
-CREATE TABLE IF NOT EXISTS brands (
-  brand_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  brand_name VARCHAR (255) NOT NULL
-);
-
 INSERT INTO brands (brand_name)
 VALUES
   ('Primitive'),
@@ -35,11 +40,6 @@ VALUES
   ('Element'),
   ('Spitfire'),
   ('Bones');
-
-CREATE TABLE IF NOT EXISTS category (
-  cat_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  cat_name VARCHAR (50) NOT NULL
-);
 
 INSERT INTO category (cat_name)
 VALUES
@@ -59,7 +59,6 @@ ALTER TABLE inventory
     REFERENCES brands(brand_id)
     ON UPDATE CASCADE
     ON DELETE SET NULL;
-
 `;
 
 async function main() {
@@ -67,6 +66,7 @@ async function main() {
   const client = new Client({
     // ssl: true,
     connectionString: process.env.PG_CONN_STRING,
+    ssl: true,
   });
   await client.connect();
   await client.query(SQL);
